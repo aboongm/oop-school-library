@@ -35,7 +35,7 @@ To get a local copy up and running follow these simple example steps.
 
 git clone https://github.com/SaidRasinlic/oop-school-library.git
 
-cd Ruby-Enumerable
+cd oop-school-library
 
 - To Start the programs
 
