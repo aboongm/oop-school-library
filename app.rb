@@ -10,7 +10,6 @@ class App
     @rentals = []
   end
 
-  # list all books
   def list_books
     puts "\nList of Books: "
     if @books.length.zero?
@@ -23,7 +22,6 @@ class App
     puts "\n"
   end
 
-  # list all people
   def list_persons
     puts "\nList of Persons: "
     if @persons.length.zero?
@@ -40,7 +38,6 @@ class App
     puts "\n"
   end
 
-  # create a student
   def create_student(age, name)
     print 'Parent Permission [y/n]: '
     parent_permission = gets.chomp
@@ -58,7 +55,6 @@ class App
     @persons << student
   end
 
-  # create a teacher
   def create_teacher(age, name)
     print 'Specialization: '
     specialization = gets.chomp
@@ -67,7 +63,6 @@ class App
     puts "The Teacher is created successfuly\n\n"
   end
 
-  # create a person (teacher or student)
   def create_person
     print "\nDo you want to create Student (1) or Teacher (2)? [Input the number]: "
     person_type = gets.chomp.to_i
@@ -85,7 +80,6 @@ class App
     end
   end
 
-  # create a book
   def create_book
     print "\nEnter a book title: "
     title = gets.chomp
@@ -95,7 +89,6 @@ class App
     puts "The book is created successfuly\n\n"
   end
 
-  # create a rental
   def create_rental
     print "\nSelect a book from the following list by number: "
     list_books
@@ -115,14 +108,21 @@ class App
     puts "Rental created successfully\n\n"
   end
 
-  # list all rentals for a given person id
   def list_rentals
-    puts "\nList of Rentals: "
+    puts "\nID of the Person: "
+    list_persons
+    ui_input if @persons.length.zero?
+    id = gets.chomp.to_i
+    puts 'List of Rentals: '
     if @rentals.length.zero?
       puts 'There is no rental in the list. Please add a rental!'
     else
       @rentals.each do |rental|
-        puts "Date: #{rental.date}. Book: '#{rental.book.title}' by #{rental.book.author}"
+        if rental.person.id == id
+          puts "Date: #{rental.date}. Book: '#{rental.book.title}' by #{rental.book.author}"
+        else
+          puts 'The person has no rentals or wrong ID'
+        end
       end
     end
     puts "\n"
@@ -151,8 +151,8 @@ class App
     end
     ui_input
   end
-  # rubocop:enable Metrics/CyclomaticComplexity
 
+  # rubocop:enable Metrics/CyclomaticComplexity
   def ui_input
     puts 'Please choose an option by entering a number:'
     puts '1. list all books'
