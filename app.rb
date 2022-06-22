@@ -8,6 +8,28 @@ class App
   # create a rental
   # list all rentals for a given person id
 
+def handle_input(option)
+    case option
+    when 1
+      list_books
+    when 2
+      list_persons
+    when 3
+      create_person
+    when 4
+      create_book
+    when 5
+      create_rental
+    when 6
+      list_rentals
+    when 7
+      puts 'Thank you for using School Library App'
+    else
+      puts 'Please select an option'
+      ui_input
+    end
+  end
+
   def ui_input
     puts 'Please choose an option by entering a number:'
     puts '1. list all books'
