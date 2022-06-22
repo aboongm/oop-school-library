@@ -6,7 +6,15 @@ require './rental'
 class App
   # list all books
   def list_books
-    puts 'list books'
+    puts "\nList of Books: "
+    if @books.length.zero?
+        puts 'There is no book in the list. Please add a book!'
+    else
+        @books.each_with_index do |book, index|
+            puts "#{index + 1}. #{book.title} by #{book.author}"
+        end
+    end
+    puts "\n"
   end
 
   # list all people
@@ -21,9 +29,9 @@ class App
 
   # create a book
   def create_book
-    puts 'Enter a book title: '
+    print 'Enter a book title: '
     title = gets.chomp
-    puts 'Enter a book author: '
+    print 'Enter a book author: '
     author = gets.chomp
     @books.push(Book.new(title, author))
     puts 'The book is created successfuly'
@@ -56,10 +64,11 @@ class App
       list_rentals
     when 7
       puts 'Thank you for using School Library App'
+      exit
     else
       puts 'Please select an option'
-      ui_input
     end
+    ui_input
   end
   # rubocop:enable Metrics/CyclomaticComplexity
 
