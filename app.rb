@@ -1,14 +1,46 @@
+require './student'
+require './teacher'
 require './book'
+require './rental'
 
 class App
   # list all books
-  # list all people
-  # create a person (teacher or student)
-  # create a book
-  # create a rental
-  # list all rentals for a given person id
+  def list_books
+    puts 'list books'
+  end
 
-def handle_input(option)
+  # list all people
+  def list_persons
+    puts 'list persons'
+  end
+
+  # create a person (teacher or student)
+  def create_person
+    puts 'create persons'    
+  end
+
+  # create a book
+  def create_book
+    puts 'Enter a book title: '
+    title = gets.chomp
+    puts 'Enter a book author: '
+    author = gets.chomp
+    @books.push(Book.new(title, author))
+    puts 'The book is created successfuly'
+  end
+
+  # create a rental
+  def create_rental
+    puts 'create rental'
+  end
+
+  # list all rentals for a given person id
+  def list_rentals
+    puts 'list rentals'
+  end
+
+  # rubocop:disable Metrics/CyclomaticComplexity
+  def handle_input(option)
     case option
     when 1
       list_books
@@ -29,6 +61,7 @@ def handle_input(option)
       ui_input
     end
   end
+  # rubocop:enable Metrics/CyclomaticComplexity
 
   def ui_input
     puts 'Please choose an option by entering a number:'
@@ -43,7 +76,7 @@ def handle_input(option)
     option = gets.chomp.to_i
     handle_input(option)
   end
-  
+
   def run
     @books = []
     @persons = []
