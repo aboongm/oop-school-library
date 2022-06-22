@@ -122,7 +122,7 @@ class App
       puts 'There is no rental in the list. Please add a rental!'
     else
       @rentals.each do |rental|
-        puts "Date: #{rental.date}. #{rental.person}, #{rental.book}"
+        puts "Date: #{rental.date}. Book: '#{rental.book.title}' by #{rental.book.author}"
       end
     end
     puts "\n"
