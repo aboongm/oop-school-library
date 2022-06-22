@@ -118,11 +118,7 @@ class App
       puts 'There is no rental in the list. Please add a rental!'
     else
       @rentals.each do |rental|
-        if rental.person.id == id
-          puts "Date: #{rental.date}. Book: '#{rental.book.title}' by #{rental.book.author}"
-        else
-          puts 'The person has no rentals or wrong ID'
-        end
+        puts "Date: #{rental.date}. Book: '#{rental.book.title}' by #{rental.book.author}" if rental.person.id == id
       end
     end
     puts "\n"
