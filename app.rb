@@ -49,7 +49,7 @@ class App
       student = Student.new(age, name, parent_permission: false)
       puts "The Student is created successfuly\n\n"
     else
-      puts "Invalid input! Please try again"
+      puts 'Invalid input! Please try again'
       ui_input
     end
     @persons << student
