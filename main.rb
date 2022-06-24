@@ -9,7 +9,7 @@ class Main
   def handle_input(option)
     case option
     when 1
-      @app.list_books
+      @app.list_book
     when 2
       @app.list_persons
     when 3

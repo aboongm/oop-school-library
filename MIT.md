@@ -1,4 +1,4 @@
-## Copyright 2021, Said Rašinlić & Mayengbam Ranjit Luwang
+## Copyright 2021, Mayengbam Ranjit Luwang
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of this Portfolio App and associated documentation files, to deal in the Portfolio App without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Portfolio App, and to permit persons to whom the Portfolio App is furnished to do so, subject to the following conditions:
 
