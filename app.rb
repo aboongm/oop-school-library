@@ -3,6 +3,8 @@ require './teacher'
 require './book'
 require './rental'
 require './list_items'
+require './create_rental'
+require './create_book'
 
 class App
   def initialize
@@ -63,29 +65,11 @@ class App
   end
 
   def create_book
-    print "\nEnter a book title: "
-    title = gets.chomp
-    print 'Enter a book author: '
-    author = gets.chomp
-    @books.push(Book.new(title, author))
-    puts "The book is created successfuly\n\n"
+    @books << CreateBook.new.create_book
   end
 
   def create_rental
-    print "\nSelect a book from the following list by number: "
-    list_books
-    book_index = gets.chomp.to_i
-
-    print 'Select a person from the following list by number (not id): '
-    list_persons
-    person_index = gets.chomp.to_i
-
-    print 'Enter a date [format yyyy/mm/dd]: '
-    date = gets.chomp
-
-    rental = Rental.new(date, @persons[person_index - 1], @books[book_index - 1])
-    @rentals << rental
-    puts "Rental created successfully\n\n"
+    @rentals << CreateRental.new.create_rental(list_books=list_books(),list_persons=list_persons(),@persons,@books)
   end
 
   def list_rentals
