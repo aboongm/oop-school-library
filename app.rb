@@ -3,6 +3,7 @@ require './teacher'
 require './book'
 require './rental'
 
+
 class App
   def initialize
     @books = []
@@ -92,12 +93,10 @@ class App
   def create_rental
     print "\nSelect a book from the following list by number: "
     list_books
-    ui_input if @books.length.zero?
     book_index = gets.chomp.to_i
 
     print 'Select a person from the following list by number (not id): '
     list_persons
-    ui_input if @persons.length.zero?
     person_index = gets.chomp.to_i
 
     print 'Enter a date [format yyyy/mm/dd]: '
@@ -111,7 +110,6 @@ class App
   def list_rentals
     puts "\nID of the Person: "
     list_persons
-    ui_input if @persons.length.zero?
     id = gets.chomp.to_i
     puts 'List of Rentals: '
     if @rentals.length.zero?
