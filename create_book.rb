@@ -1,6 +1,6 @@
 require_relative 'book'
 
-class CreateBook 
+class CreateBook
   def create_book
     print "\nEnter a book title: "
     title = gets.chomp
