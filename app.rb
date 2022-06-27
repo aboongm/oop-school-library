@@ -69,7 +69,7 @@ class App
   end
 
   def create_rental
-    @rentals << CreateRental.new.create_rental(list_books=list_books(),list_persons=list_persons(),@persons,@books)
+    @rentals << CreateRental.new.create_rental(list_books, list_persons, @persons, @books)
   end
 
   def list_rentals
