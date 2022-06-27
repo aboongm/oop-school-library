@@ -2,25 +2,18 @@ require './student'
 require './teacher'
 require './book'
 require './rental'
-
+require './list_items'
 
 class App
   def initialize
     @books = []
     @persons = []
     @rentals = []
+    @list_items = ListItems.new
   end
 
   def list_books
-    puts "\nList of Books: "
-    if @books.length.zero?
-      puts 'There is no book in the list. Please add a book!'
-    else
-      @books.each_with_index do |book, index|
-        puts "#{index + 1}. #{book.title} by #{book.author}"
-      end
-    end
-    puts "\n"
+    @list_items.show_books_list(@books)
   end
 
   def list_persons

@@ -44,4 +44,3 @@ class Start
     end
   end
 end
-
