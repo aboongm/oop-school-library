@@ -43,6 +43,17 @@ module SaveData
   end
 
   def save_rentals(rentals)
-    
+    data = []
+    rentals.each do |rental|
+      data << {
+                  date: rental.date,
+                  person_id: rental.person.id,
+                  name: rental.person.name,
+                  title: rental.book.title,
+                  author: rental.book.author
+                }
+    end
+    ruby = JSON.generate(data)
+    File.write('./data/rentals.json', ruby)
   end
 end
