@@ -13,9 +13,9 @@ class App
 
   include LoadData
   def initialize
-    @books = []
-    @persons = []
-    @rentals = []
+    @books = load_books
+    @persons = load_persons
+    @rentals = load_rentals(@persons, @books)
     @list_items = ListItems.new
   end
 

@@ -1,7 +1,6 @@
 require './student'
 require './teacher'
 require './rental'
-
 module SaveData
   def save_data(books, persons, rentals)
     save_books(books)
@@ -23,38 +22,40 @@ module SaveData
 
   def save_persons(persons)
     saved_persons = []
-    puts "person: #{persons}"
-    persons.each_with_index do |person, index|
-        puts "index: #{index} - person: #{person}"
-        saved_persons << if person.instance_of? Student
+    persons.each_with_index do |person, _index|
+      saved_persons << if person.instance_of? Student
                          {
                            json_class: 'Student',
+                           id: person.id,
                            name: person.name,
                            age: person.age,
                            parent_permission: person.parent_permission
                          }
                        elsif person.instance_of? Teacher
                          {
-                           json_class: 'Teacher', name: person.name, age: person.age, specialization: person.specialization
+                           json_class: 'Teacher',
+                           id: person.id,
+                           name: person.name,
+                           age: person.age,
+                           specialization: person.specialization
                          }
                        end
     end
-    ruby = JSON.generate(saved_persons)
-    File.write('./data/persons.json', ruby)
+
+    File.write('./data/persons.json', JSON.generate(saved_persons))
   end
 
   def save_rentals(rentals)
     data = []
     rentals.each do |rental|
       data << {
-                  date: rental.date,
-                  person_id: rental.person.id,
-                  name: rental.person.name,
-                  title: rental.book.title,
-                  author: rental.book.author
-                }
+        date: rental.date,
+        id: rental.person.id,
+        name: rental.person.name,
+        title: rental.book.title,
+        author: rental.book.author
+      }
     end
-    ruby = JSON.generate(data)
-    File.write('./data/rentals.json', ruby)
+    File.write('./data/rentals.json', JSON.generate(data))
   end
 end
