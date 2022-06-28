@@ -6,12 +6,16 @@ require './list_items'
 require './create_rental'
 require './create_book'
 require './create_person'
+require './modules/load_data'
 
 class App
+  attr_accessor :books, :persons, :rentals
+
+  include LoadData
   def initialize
-    @books = []
-    @persons = []
-    @rentals = []
+    @books = load_books
+    @persons = load_persons
+    @rentals = load_rentals(@persons, @books)
     @list_items = ListItems.new
   end
 

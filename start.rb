@@ -1,6 +1,9 @@
+require 'json'
 require './app'
+require './modules/save_data'
 
 class Start
+  include SaveData
   def initialize
     @app = App.new
   end
@@ -21,6 +24,7 @@ class Start
     when 6
       @app.list_rentals
     when 7
+      save_data(@app.books, @app.persons, @app.rentals)
       puts 'Thank you for using School Library App'
       exit
     else
