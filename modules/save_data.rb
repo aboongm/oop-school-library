@@ -23,17 +23,19 @@ module SaveData
 
   def save_persons(persons)
     saved_persons = []
-    puts "persons: #{persons}"
-    persons.each do |person|
-      saved_persons << if person.instance_of? Student
+    puts "person: #{persons}"
+    persons.each_with_index do |person, index|
+        puts "index: #{index} - person: #{person}"
+        saved_persons << if person.instance_of? Student
                          {
                            json_class: 'Student',
                            name: person.name,
                            age: person.age,
+                           parent_permission: person.parent_permission
                          }
                        elsif person.instance_of? Teacher
                          {
-                           json_class: 'Teacher', name: person.name, age: person.age
+                           json_class: 'Teacher', name: person.name, age: person.age, specialization: person.specialization
                          }
                        end
     end

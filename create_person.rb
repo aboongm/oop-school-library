@@ -24,7 +24,7 @@ class CreatePerson
     parent_permission = gets.chomp
     case parent_permission
     when 'y'
-      student = Student.new(age, name)
+      student = Student.new(age, name, parent_permission: true)
       puts "The Student is created successfuly\n\n"
     when 'n'
       student = Student.new(age, name, parent_permission: false)
