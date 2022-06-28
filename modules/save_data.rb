@@ -29,8 +29,7 @@ module SaveData
                          {
                            json_class: 'Student',
                            name: person.name,
-                           age: person.age
-                           # parent_permission: person.parent_permission
+                           age: person.age,
                          }
                        elsif person.instance_of? Teacher
                          {
