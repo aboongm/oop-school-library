@@ -33,8 +33,7 @@ module SaveData
                          }
                        elsif person.instance_of? Teacher
                          {
-                           json_class: 'Teacher',
-                           id: person.id,
+                           json_class: 'Teacher', id: person.id,
                            name: person.name,
                            age: person.age,
                            specialization: person.specialization
