@@ -8,6 +8,5 @@ describe CapitalizeDecorator do
       capitalized_person = CapitalizeDecorator.new(person)
       expect(capitalized_person.correct_name).to eq 'Maximilianus'
     end
-
   end
 end

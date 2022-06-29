@@ -8,7 +8,6 @@ Imagine that you are the librarian of OOP University, and you need a tool to rec
 
 And all of this will be built in a beautiful and well-organized way!
 
-
 ## Built With
 
 - Ruby
@@ -43,7 +42,6 @@ open terminal
 run the command $irb (interactive ruby shell)
 run the program functions
 
-
 ## Authors
 
 👤 **Ranjit Luwang**
@@ -52,6 +50,11 @@ run the program functions
 - Twitter: [@John_luang1](https://twitter.com/John_luang1)
 - LinkedIn: [LinkedIn](https://www.linkedin.com/in/aboongm)
 
+👤 **Zelalem Mekonnen**
+
+- GitHub: [@zmekonnen251](https://github.com/zmekonnen251)
+- Twitter: [@mek_zela](https://twitter.com/mek_zela)
+- LinkedIn: [Zelalem G. Mekonnen](https://www.linkedin.com/in/zelalem-getachew/)
 
 ## 🤝 Contributing
 
@@ -65,7 +68,7 @@ Give a ⭐️ if you like this project!
 
 ## Acknowledgments
 
-- Microverse 
+- Microverse
 
 ## 📝 License
 
